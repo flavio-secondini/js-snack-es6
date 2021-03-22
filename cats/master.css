@@ -5,3 +5,15 @@
 .rosa {
   color: pink;
 }
+
+.chiaro {
+  opacity: 0.3;
+}
+
+.medio {
+  opacity: 0.5;
+}
+
+.scuro {
+  opacity: 0.8;
+}

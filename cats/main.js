@@ -7,7 +7,7 @@ var cats = [
     },
     {
         nome: 'Clara',
-        eta: 8,
+        eta: 40,
         colore: 'Verde',
         sesso: 'Femmina'
     },
@@ -19,7 +19,7 @@ var cats = [
     },
     {
         nome: 'Tom',
-        eta: 11,
+        eta: 100,
         colore: 'Grigio',
         sesso: 'Maschio'
     },
@@ -43,5 +43,39 @@ cats.forEach((element) => {
         colore = 'rosa';
     }
 
-    $(".lista2").append(`<li>${element.nome} è di colore ${element.colore}<i class="fas fa-ribbon ${colore}"></i></li>`)
+    let opacita
+
+    if (element.eta < 25) {
+      opacita = "chiaro"
+    } else if (25 < element.eta && element.eta < 50) {
+      opacita = "medio"
+    } else {
+      opacita = "scuro"
+    }
+
+    $(".lista2").append(`<li>${element.nome} è di colore ${element.colore}<i class="fas fa-ribbon ${colore} ${opacita}"></i></li>`)
 });
+
+var gattiOrdinati = [...femmine, ...maschi]
+
+var nuoviGatti = gattiOrdinati.map((gatto, index, array) => {
+  var {nome, colore} = gatto
+
+  let opacita
+
+  if (gatto.eta < 25) {
+    opacita = "chiaro"
+  } else if (25 < gatto.eta && gatto.eta < 50) {
+    opacita = "medio"
+  } else {
+    opacita = "scuro"
+  }
+
+  let obj = {
+    nome,
+    colore,
+    opacita
+  }
+  console.log(obj);
+  $(".lista3").append(`<li>${obj.nome} è di colore ${obj.colore}</li>`)
+})
